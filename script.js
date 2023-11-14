@@ -21,14 +21,26 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  var password = "";
   var passwordText = document.querySelector("#password");
   var charSet = ['ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz', '0123456789', '!@#$%^&*()_+=-'];
+  var charLength = window.prompt("What is the desired length for your password? Must be between 8 and 128 characters.");
+  var upperCase = window.confirm("Include upper case characters?");
+  var lowerCase = window.confirm("Include lower case characters?");
+  var numbers = window.confirm("Will this password include numbers?");
+  var symbols = window.confirm("Are special characters included in this password?");
+  if (((8 <=charLength <=128)===true)&&((charLength)||(upperCase)||(lowerCase)||(symbols))) {
+    password = generatePassword();
+  }else{
+    window.alert("Invalid password parameters, try again.");
 
-
+}
   passwordText.value = password;
 
 }
 
+function generatePassword(){
+
+}
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
