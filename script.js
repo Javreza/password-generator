@@ -24,7 +24,7 @@ function writePassword() {
   var password = "";
   var passwordText = document.querySelector("#password");
   var charLength = window.prompt("What is the desired length for your password? Length must be between 8 and 128 characters.");
-  window.alert('For the following prompts, select "OK" for YES and "Cancel" for NO.' )
+  window.alert('For the following prompts, select "OK" for YES and "Cancel" for NO.' );
   var upperCase = window.confirm("Include upper case characters?");
   var lowerCase = window.confirm("Include lower case characters?");
   var numbers = window.confirm("Will this password include numbers?");
@@ -50,14 +50,9 @@ function generatePassword(charLength, upperCase, lowerCase, numbers, symbols){
   if (lowerCase === true){selectedCharSet+=charSet[1];}
   if (numbers === true){selectedCharSet+=charSet[2];}
   if (symbols === true){selectedCharSet+=charSet[3];}
-
-  console.log(selectedCharSet);
   for ( var i = 0; i < charLength; i++ ) {
     password += selectedCharSet.charAt(Math.floor(Math.random() * selectedCharSet.length));
-
 }
-
-  console.log(password);
 return password;
 }
 // Add event listener to generate button
