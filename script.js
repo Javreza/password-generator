@@ -31,7 +31,7 @@ function writePassword() {
   var symbols = window.confirm("Are special characters included in this password?");
   if (8 <= charLength && charLength <=128) {
     if ((upperCase)||(lowerCase)||(numbers)||(symbols)){
-    password = generatePassword();
+    password = generatePassword(charLength, upperCase, lowerCase, numbers, symbols);
     } else {
       window.alert("No password character sets selected, try again.")
     }
@@ -43,26 +43,22 @@ function writePassword() {
 
 }
 
-function generatePassword(){
+function generatePassword(charLength, upperCase, lowerCase, numbers, symbols){
   var charSet = ['ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz', '!@#$%^&*()_+=-', '0123456789'];
   var selectedCharSet = "";
-  switch (selectedCharSet){
-    case upperCase === true:
-      selectedCharSet.concat(charSet[0]);
-      break;
-    case lowerCase === true:
-      selectedCharSet.concat(charSet[1]);
-      break;
-    case numbers === true:
-      selectedCharSet.concat(charSet[2]);
-      break;
-    case symbols === true:
-      selectedCharSet.concat(charSet[3]);
-      break;
-  }
-  
+  if(upperCase === true){selectedCharSet+=charSet[0];}
+  if (lowerCase === true){selectedCharSet+=charSet[1];}
+  if (numbers === true){selectedCharSet+=charSet[2];}
+  if (symbols === true){selectedCharSet+=charSet[3];}
 
+  console.log(selectedCharSet);
+  for ( var i = 0; i < charLength; i++ ) {
+    password += selectedCharSet.charAt(Math.floor(Math.random() * selectedCharSet.length));
 
+}
+
+  console.log(password);
+return password;
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
