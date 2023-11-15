@@ -2,6 +2,7 @@
 For this week's challenge we were tasked with deploying a functioning password generator.
 
 # Deployment Link
+https://javreza.github.io/password-generator/
 
 
 # Description
