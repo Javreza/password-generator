@@ -13,4 +13,6 @@ For these prompts the use must note that **OK = YES** and **Cancel = NO**.
 
 Find an image below of the site with an example of a generated password:
 <img width="960" alt="image" src="https://github.com/Javreza/password-generator/assets/20735971/df5d6be2-a3d7-46ad-84e4-d0a870afdcf6">
+
+
 For the above example, I made the choice to exclude uppercase characters.
