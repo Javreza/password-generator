@@ -23,15 +23,14 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var password = "";
   var passwordText = document.querySelector("#password");
-  var charSet = ['ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz', '0123456789', '!@#$%^&*()_+=-'];
-  var charLength = window.prompt("What is the desired length for your password? Must be between 8 and 128 characters.");
+  var charLength = window.prompt("What is the desired length for your password? Length must be between 8 and 128 characters.");
   window.alert('For the following prompts, select "OK" for YES and "Cancel" for NO.' )
   var upperCase = window.confirm("Include upper case characters?");
   var lowerCase = window.confirm("Include lower case characters?");
   var numbers = window.confirm("Will this password include numbers?");
   var symbols = window.confirm("Are special characters included in this password?");
   if (8 <= charLength && charLength <=128) {
-    if ((upperCase)||(lowerCase)||(symbols)||(numbers)){
+    if ((upperCase)||(lowerCase)||(numbers)||(symbols)){
     password = generatePassword();
     } else {
       window.alert("No password character sets selected, try again.")
@@ -45,6 +44,24 @@ function writePassword() {
 }
 
 function generatePassword(){
+  var charSet = ['ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz', '!@#$%^&*()_+=-', '0123456789'];
+  var selectedCharSet = "";
+  switch (selectedCharSet){
+    case upperCase === true:
+      selectedCharSet.concat(charSet[0]);
+      break;
+    case lowerCase === true:
+      selectedCharSet.concat(charSet[1]);
+      break;
+    case numbers === true:
+      selectedCharSet.concat(charSet[2]);
+      break;
+    case symbols === true:
+      selectedCharSet.concat(charSet[3]);
+      break;
+  }
+  
+
 
 }
 // Add event listener to generate button
